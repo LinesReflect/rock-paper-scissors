@@ -113,10 +113,57 @@ function totalScore() {
 }
 
 
+function playerDots() {
+    if (playerWins === 1) {
+        let playerWins1 = document.querySelector(".user-wins-1")
+        playerWins1.style.backgroundColor = "green"
+    }if (playerWins === 2) {
+        let playerWins2 = document.querySelector(".user-wins-2")
+        playerWins2.style.backgroundColor = "green"
+    }if (playerWins === 3) {
+        let playerWins3 = document.querySelector(".user-wins-3")
+        playerWins3.style.backgroundColor = "green"
+    }if (playerWins === 4) {
+        let playerWins4 = document.querySelector(".user-wins-4")
+        playerWins4.style.backgroundColor = "green"
+    }if (playerWins === 5) {
+        let playerWins5 = document.querySelector(".user-wins-5")
+        playerWins5.style.backgroundColor = "green"
+    }
+}
+
+
+function computerDots() {
+    if (computerWins === 1) {
+        let computerWins1 = document.querySelector(".computer-wins-1")
+        computerWins1.style.backgroundColor = "green"
+    }if (computerWins === 2) {
+        let computerWins2 = document.querySelector(".computer-wins-2")
+        computerWins2.style.backgroundColor = "green"
+    }if (computerWins === 3) {
+        let computerWins3 = document.querySelector(".computer-wins-3")
+        computerWins3.style.backgroundColor = "green"
+    }if (computerWins === 4) {
+        let computerWins4 = document.querySelector(".computer-wins-4")
+        computerWins4.style.backgroundColor = "green"
+    }if (computerWins === 5) {
+        let computerWins5 = document.querySelector(".computer-wins-5")
+        computerWins5.style.backgroundColor = "green"
+    }
+}
+
+
+function scoreboardDots() {
+    playerDots()
+    computerDots()
+}
+
+
 function updateGame() {
     computerChoice()
     getWinner()
     scoreCount()
+    scoreboardDots()
     totalScore()
     console.log(playerWins)
     console.log(computerWins)
