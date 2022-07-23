@@ -9,6 +9,10 @@ let userPick
 let roundWinner
 let playerWins = 0
 let computerWins = 0
+let totalPlayerWins = document.querySelector(".total-player-wins")
+let totalComputerWins = document.querySelector(".total-computer-wins")
+let totalPlayerWinsSum = 0
+let totalComputerWinsSum = 0
 let inProgress = false
 
 startButton.addEventListener("click", startGame)
@@ -99,57 +103,90 @@ function scoreCount() {
 
 
 function totalScore() {
+    scoreboardDots()
     if (playerWins === 5) {
         result.textContent = "Player wins the match! \n:) \n Click below to play again!"
         startButton.style.display = "block"
         inProgress = false
+        totalPlayerWinsSum += 1
+        totalPlayerWins.textContent = "(Match) Wins: " + totalPlayerWinsSum
         return inProgress
     }else if (computerWins === 5) {
         result.textContent = "Computer wins the match! \n:( \n Click below to play again!"
         startButton.style.display = "block"
         inProgress = false
+        totalComputerWinsSum += 1
+        totalComputerWins.textContent = "(Match) Wins: " + totalComputerWinsSum
         return inProgress
     }
 }
 
 
 function playerDots() {
-    if (playerWins === 1) {
+    if (inProgress === false) {
         let playerWins1 = document.querySelector(".user-wins-1")
-        playerWins1.style.backgroundColor = "green"
-    }if (playerWins === 2) {
+         playerWins1.style.backgroundColor = "#777777"
         let playerWins2 = document.querySelector(".user-wins-2")
-        playerWins2.style.backgroundColor = "green"
-    }if (playerWins === 3) {
+        playerWins2.style.backgroundColor = "#777777"
         let playerWins3 = document.querySelector(".user-wins-3")
-        playerWins3.style.backgroundColor = "green"
-    }if (playerWins === 4) {
+        playerWins3.style.backgroundColor = "#777777"
         let playerWins4 = document.querySelector(".user-wins-4")
-        playerWins4.style.backgroundColor = "green"
-    }if (playerWins === 5) {
+        playerWins4.style.backgroundColor = "#777777"
         let playerWins5 = document.querySelector(".user-wins-5")
-        playerWins5.style.backgroundColor = "green"
+        playerWins5.style.backgroundColor = "#777777"
+    }else {
+        if (playerWins === 1) {
+            let playerWins1 = document.querySelector(".user-wins-1")
+            playerWins1.style.backgroundColor = "green"
+        }if (playerWins === 2) {
+            let playerWins2 = document.querySelector(".user-wins-2")
+            playerWins2.style.backgroundColor = "green"
+        }if (playerWins === 3) {
+            let playerWins3 = document.querySelector(".user-wins-3")
+            playerWins3.style.backgroundColor = "green"
+        }if (playerWins === 4) {
+            let playerWins4 = document.querySelector(".user-wins-4")
+            playerWins4.style.backgroundColor = "green"
+        }if (playerWins === 5) {
+            let playerWins5 = document.querySelector(".user-wins-5")
+            playerWins5.style.backgroundColor = "green"
+        }
     }
+    return
 }
 
 
 function computerDots() {
-    if (computerWins === 1) {
+    if (inProgress === false) {
         let computerWins1 = document.querySelector(".computer-wins-1")
-        computerWins1.style.backgroundColor = "green"
-    }if (computerWins === 2) {
+        computerWins1.style.backgroundColor = "#777777"
         let computerWins2 = document.querySelector(".computer-wins-2")
-        computerWins2.style.backgroundColor = "green"
-    }if (computerWins === 3) {
+        computerWins2.style.backgroundColor = "#777777"
         let computerWins3 = document.querySelector(".computer-wins-3")
-        computerWins3.style.backgroundColor = "green"
-    }if (computerWins === 4) {
+        computerWins3.style.backgroundColor = "#777777"
         let computerWins4 = document.querySelector(".computer-wins-4")
-        computerWins4.style.backgroundColor = "green"
-    }if (computerWins === 5) {
+        computerWins4.style.backgroundColor = "#777777"
         let computerWins5 = document.querySelector(".computer-wins-5")
-        computerWins5.style.backgroundColor = "green"
+        computerWins5.style.backgroundColor = "#777777"
+    }else {
+        if (computerWins === 1) {
+            let computerWins1 = document.querySelector(".computer-wins-1")
+            computerWins1.style.backgroundColor = "green"
+        }if (computerWins === 2) {
+            let computerWins2 = document.querySelector(".computer-wins-2")
+            computerWins2.style.backgroundColor = "green"
+        }if (computerWins === 3) {
+            let computerWins3 = document.querySelector(".computer-wins-3")
+            computerWins3.style.backgroundColor = "green"
+        }if (computerWins === 4) {
+            let computerWins4 = document.querySelector(".computer-wins-4")
+            computerWins4.style.backgroundColor = "green"
+        }if (computerWins === 5) {
+            let computerWins5 = document.querySelector(".computer-wins-5")
+            computerWins5.style.backgroundColor = "green"
+        }
     }
+    return
 }
 
 
@@ -163,7 +200,6 @@ function updateGame() {
     computerChoice()
     getWinner()
     scoreCount()
-    scoreboardDots()
     totalScore()
     console.log(playerWins)
     console.log(computerWins)
@@ -172,9 +208,10 @@ function updateGame() {
 
 
 function startGame() {
-    inProgress = true
+    scoreboardDots()
     playerWins = 0
     computerWins = 0
+    inProgress = true
     result.textContent = "Rock, paper, or scissors?"
     startButton.style.display = "none"
     playerButtonsOn()
