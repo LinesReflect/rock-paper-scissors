@@ -39,7 +39,6 @@ function playerButtonsOff() {
 function userPicksRock() {
     ready ="yes"
     userPick = "Rock"
-    console.log("I pck " + userPick)
     updateGame()
 }
 
@@ -47,7 +46,6 @@ function userPicksRock() {
 function userPicksPaper() {
     ready ="yes"
     userPick = "Paper"
-    console.log("I pck " + userPick)
     updateGame()
 }
 
@@ -55,20 +53,17 @@ function userPicksPaper() {
 function userPicksScissors() {
     ready ="yes"
     userPick = "Scissors"
-    console.log("I pck " + userPick)
     updateGame()
 }
 
 
 function computerChoice() {
     randomPick = computerChoices[Math.floor(Math.random() * computerChoices.length)]
-    console.log(randomPick)
     return randomPick
 }
 
 
 function getWinner() {
-    console.log(inProgress)
     if (
         userPick === "Rock" && randomPick === "Scissors" ||
         userPick === "Paper" && randomPick === "Rock" ||
@@ -201,8 +196,6 @@ function updateGame() {
     getWinner()
     scoreCount()
     totalScore()
-    console.log(playerWins)
-    console.log(computerWins)
     return playerButtonsOff()
 }
 
