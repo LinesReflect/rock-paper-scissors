@@ -167,3 +167,26 @@ h2 {
     text-align: center;
     width: 250px;
 }
+
+
+/* Result */
+
+
+/* Start Button */
+
+
+.start-button {
+    width: 100px;
+    height: 40px;
+    background-color: #ffee59;
+    border-radius: 50%;
+}
+
+
+button:hover {
+    cursor: pointer;
+    border: 2px #ffffff solid;
+}
+
+
+/* Start Button */
